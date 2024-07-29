@@ -1,0 +1,67 @@
+Metadata-Version: 2.1
+Name: mmdet3d
+Version: 1.4.0
+Summary: OpenMMLab's next-generation platformfor general 3D object detection.
+Home-page: https://github.com/open-mmlab/mmdetection3d
+Author: MMDetection3D Contributors
+Author-email: zwwdev@gmail.com
+License: Apache License 2.0
+Keywords: computer vision,3D object detection
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Description-Content-Type: text/markdown
+Provides-Extra: all
+Provides-Extra: tests
+Provides-Extra: build
+Provides-Extra: optional
+Provides-Extra: mim
+License-File: LICENSE
+
+## Get started
+
+### Changes from original mmdet3d repo
+
+see [commit log](https://github.com/Galaxy-ZRX/talk2sensors/commit/c3a44c8746f3e4a2d462e808980e7eb6d9f310a2) for full details.
+
+Updated 4 config files, 2 for lidar and 2 for radar of VoD
+
+Added [radar pillar encoder](https://github.com/Galaxy-ZRX/talk2sensors/blob/main/mmdet3d/models/voxel_encoders/pillar_encoder.py#L328-L487) following [this](https://github.com/tudelft-iv/view-of-delft-dataset/blob/main/PP-Radar.md)
+
+Update other files related to create_data and loading
+
+### Prepare
+
+Follow [this](https://mmdetection3d.readthedocs.io/en/latest/get_started.html) to install mmdet3d
+
+Prepare data by 
+
+``` 
+python tools/create_data.py kitti --root-path ./data/vod/lidar(radar/radar_3frames/5frames)/ --out-dir ./data/vod/lidar(radar...)/ --extra-tag kitti
+```
+
+### Train on Radar VoD
+Train and test by using the following command. 
+
+Note: the official mmdetection3d evaluate code is not compatible with VoD. Once generate the txt results in /ppradar_results (set by "test_evaluator.pklfile_prefix="), first use convert_results_index.ipynb to convert the index of result files, then use vod official code (4_evaluation.ipynb) to get correct eval results.
+``` 
+python tools/train.py configs/pointpillars/pointpillars_radar_vod.py
+python tools/test.py configs/pointpillars/pointpillars_radar_vod.py work_dirs/pointpillars_radar_vod/epoch_80.pth --cfg-options 'test_evaluator.pklfile_prefix=./ppradar_results’
+```
+
+### Train on LiDAR VoD
+```
+python tools/train.py configs/pointpillars/pointpillars_hv_secfpn_8xb6-160e_vod-3d-3class-lidar.py
+python tools/test.py configs/pointpillars/pointpillars_hv_secfpn_8xb6-160e_vod-3d-3class-lidar.py  work_dirs/pointpillars_hv_secfpn_8xb6-160e_vod-3d-3class-lidar/epoch_80.pth      --cfg-options 'test_evaluator.pklfile_prefix=./pplidar_results' 'test_evaluator.submission_prefix=./pplidar_txt_results'
+```
+
+### Evaluate with VoD kit
+first reorder the files in the pplidar_txt_results by using the provided convert_results_index.ipynb.
+using the 4_evaluation.ipynb from VoD to eval. Change the file dir to converted results.
+
+

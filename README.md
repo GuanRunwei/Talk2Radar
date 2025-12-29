@@ -22,3 +22,5 @@ Please download the [VoD dataset](https://tudelft-iv.github.io/view-of-delft-dat
 -------- image_2
 ----- testing
 ```
+
+If you are familiar with mmdetection3D framework, you can work on it fast.

@@ -4,13 +4,7 @@
 [Download Link in Baidu Cloud Disk](https://pan.baidu.com/s/1yonU-8r_IyMvuBIniSE4bA?pwd=aj7z)
 password: aj7z
 
-Please download the VoD dataset and organize the dataset like this:
-
-> VoD
-> > lidar
-> > > 第二层嵌套
-> > radar_5frames
-> > > ># Talk2Radar
+Please download the [VoD dataset](https://tudelft-iv.github.io/view-of-delft-dataset/) and organize the dataset like this:
 
 
 ## Download Link
@@ -22,15 +16,15 @@ Please download the VoD dataset and organize the dataset like this:
 
 ```
 - VoD
--- lidar
---- training
----- label_2
----- prompt
----- image_2
--- radar_5frames
---- training
----- label_2
----- prompt
----- image_2
---- testing
+--- lidar
+----- training
+-------- label_2
+-------- prompt
+-------- image_2
+--- radar_5frames
+----- training
+-------- label_2
+-------- prompt
+-------- image_2
+----- testing
 ```

@@ -7,20 +7,25 @@ password: aj7z
 
 Please download the [VoD dataset](https://tudelft-iv.github.io/view-of-delft-dataset/) and organize the dataset like this:
 
-
 ```
 - VoD
+|
 --- lidar
------ training
--------- label_2
--------- prompt
--------- image_2
+   |
+   --- training
+      |
+      --- label_2
+      --- prompt
+      --- image_2
 --- radar_5frames
------ training
--------- label_2
--------- prompt
--------- image_2
------ testing
+   |
+   --- training
+      |
+      --- label_2
+      --- prompt
+      --- image_2
 ```
 
 If you are familiar with mmdetection3D framework, you can work on it fast.
+
+You should use the official evaluation code of VoD to evaluate the predicted results of Talk2Radar.

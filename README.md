@@ -20,15 +20,17 @@ password: aj7z
 
 Please download the VoD dataset and organize the dataset like this:
 
-> VoD
-> > lidar
-> > > training
-> > > > label_2
-> > > > prompt
-> > > > image_2
-> > radar_5frames
-> > > training
-> > > > label_2
-> > > > prompt
-> > > > image_2
-> > > testing
+```
+- VoD
+-- lidar
+--- training
+---- label_2
+---- prompt
+---- image_2
+-- radar_5frames
+--- training
+---- label_2
+---- prompt
+---- image_2
+--- testing
+```

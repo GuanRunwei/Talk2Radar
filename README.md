@@ -3,16 +3,10 @@
 ## Download Link
 [Download Link in Baidu Cloud Disk](https://pan.baidu.com/s/1yonU-8r_IyMvuBIniSE4bA?pwd=aj7z)
 password: aj7z
+👆 includes the re-annotated labels and prompts.
 
 Please download the [VoD dataset](https://tudelft-iv.github.io/view-of-delft-dataset/) and organize the dataset like this:
 
-
-## Download Link
-[Download Link in Baidu Cloud Disk](https://pan.baidu.com/s/1yonU-8r_IyMvuBIniSE4bA?pwd=aj7z)
-password: aj7z
-👆 includes the re-annotated labels and prompts.
-
-Please download the VoD dataset and organize the dataset like this:
 
 ```
 - VoD
